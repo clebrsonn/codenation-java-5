@@ -22,15 +22,20 @@ public class QuoteServiceImpl implements QuoteService {
 
 		int random = new Random().nextInt(18307);
 		final Optional<Scripts> scripts = repository.findById(random);
-		return scripts.map(Scripts::getQuote).orElse(null);
+        final Quote quote = scripts.map(Scripts::getQuote).orElse(null);
+        quote.setId(scripts.get().getId());
+        return quote;
 
 	}
 
 	@Override
 	public Quote getQuoteByActor(String actor) {
-		final List<Quote> quotes = repository.findByActor(actor);
+		final List<Scripts> scripts = repository.findByActor(actor);
+        final Scripts script = scripts.get(new Random().nextInt(scripts.size()));
+        Quote quote =script.getQuote();
+        quote.setId(script.getId());
 
-		return quotes.get(new Random().nextInt(quotes.size()));
+		return quote;
 	}
 
 }

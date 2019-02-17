@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface QuoteRepository extends JpaRepository<Scripts, Integer> {
 
-    @Query("SELECT s.quote FROM scripts s where s.quote.actor = :actor")
-    List<Quote> findByActor(@Param("actor") String actor);
+    @Query("SELECT s FROM scripts s where s.quote.actor = :actor")
+    List<Scripts> findByActor(@Param("actor") String actor);
 }

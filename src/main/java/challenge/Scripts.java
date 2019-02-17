@@ -3,7 +3,6 @@ package challenge;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.text.DateFormat;
 import java.util.Date;
 
 @Entity(name = "scripts")

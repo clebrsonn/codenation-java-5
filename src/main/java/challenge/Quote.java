@@ -1,6 +1,8 @@
 package challenge;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 @Embeddable
 public class Quote {
@@ -13,6 +15,16 @@ public class Quote {
 	@Column(name = "detail")
 	private String quote;
 
+	public Quote() {
+
+	}
+
+
+	public Quote(Integer id, String actor, String quote) {
+		this.id = id;
+		this.actor = actor;
+		this.quote = quote;
+	}
 
 	public String getActor() {
 		return actor;
